@@ -31,6 +31,7 @@ doWork() {
     
     printf 'Done\n'
     printf 'Go to Terminal -> Settings -> Profiles -> Basic -> Text and replace font to "DejaVuSansM Nerd Font Mono"\n'
+    printf 'Go to Terminal -> Settings -> Profiles -> Basic -> Keyboard and mark "Use Option as Meta key""\n'
     printf 'Close Terminal fully with Cmd+Q and reopen it\n'
 }
 
