@@ -22,7 +22,7 @@ doWork() {
 	mv "${HOME}/.zshrc" "${HOME}/.zshrc.bak"
     fi
     
-    cp -r ./zshInst "${HOME}/.config"
+    cp -R ./zshInst "${HOME}/.config"
     cp ./.zshenv "${HOME}/.zshenv"
 
      if [ -f "${HOME}/.zsh_history" ]; then
