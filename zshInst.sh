@@ -13,7 +13,7 @@ doWork() {
     brew install --cask font-dejavu-sans-mono-nerd-font
 
     if [ -f "${HOME}/.zprofile" ]; then
-	mv "${HOME}/.zprofile" "${HOME}/.zprofile"
+	mv "${HOME}/.zprofile" "${HOME}/.zprofile.bak"
     fi
     if [ -f "${HOME}/.zshenv" ]; then
 	mv "${HOME}/.zshenv" "${HOME}/.zshenv.bak"
@@ -24,8 +24,9 @@ doWork() {
     
     cp -R ./zshInst "${HOME}/.config"
     cp ./.zshenv "${HOME}/.zshenv"
+    fzf --zsh > "${HOME}/.config/zshInst/.fzf.zsh"
 
-     if [ -f "${HOME}/.zsh_history" ]; then
+    if [ -f "${HOME}/.zsh_history" ]; then
 	mv "${HOME}/.zsh_history" "${HOME}/.config/zshInst/.zsh_history"
     fi
     

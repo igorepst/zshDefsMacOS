@@ -19,7 +19,7 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:c
 export LS_COLORS
 
 typeset -gaU fpath path
-path+=(/opt/homebrew/bin /opt/homebrew/sbin /usr/local/bin /usr/bin /bin /usr/sbin /sbin)
+path+=("$HOME"/ask/bin "$HOME"/.local/bin /opt/homebrew/bin /opt/homebrew/sbin /usr/local/bin /usr/bin /bin /usr/sbin /sbin)
 fpath+=(/opt/homebrew/share/zsh-completions /usr/share/zsh/site-functions /opt/homebrew/share/zsh/site-functions /usr/local/share/zsh/site-functions /usr/share/zsh/"${ZSH_VERSION}"/functions)
 
 bindkey "^[[3~" delete-char
@@ -95,9 +95,6 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:processes-names' command 'ps c -U ${USER} -o command | uniq'
 
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
-
 alias ls='gls --color=auto --hyperlink=auto --group-directories-first'
 alias la='ls -AFlh'
 alias ll='la'
@@ -124,6 +121,9 @@ source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-se
 
 bindkey '[A' history-substring-search-up
 bindkey '[B' history-substring-search-down
+
+# Set up fzf key bindings and fuzzy completion
+source "${ZDOTDIR}"/.fzf.zsh
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 source "${ZDOTDIR}"/.p10k.zsh
